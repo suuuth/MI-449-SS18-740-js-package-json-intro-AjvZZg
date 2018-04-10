@@ -1,3 +1,5 @@
+@import "_variables";
+
 body {
   margin: 0;
   background-color: #333;
@@ -9,8 +11,8 @@ body {
     left: 0;
     border-top: 0;
     border-left: 0;
-    border-right: 1px solid #555;
-    border-bottom: 1px solid #555;
+    border-right: $border;
+    border-bottom: $border;
     border-bottom-right-radius: 6px;
     background-color: #777;
     box-shadow: #000 0 0 15px;
@@ -36,29 +38,29 @@ body {
       font-family: 'Courier New', Courier, monospace;
       font-weight: normal;
       font-size: 12px;
-      border: 1px solid #555;
-      transition: width 0.5s, background-color 0.5s;
+      border: $border;
+      transition: $transition;
       border-radius: 3px;
+
+      :hover {
+        cursor: pointer;
+        background-color: #ddf;
+        width: 85%;
+        transition: $transition;
+      }
+
+      :active,
+      :focus {
+        outline: none;
+      }
     }
 
-    button:hover {
-      cursor: pointer;
-      background-color: #ddf;
-      width: 85%;
-      transition: width 0.5s, background-color 0.5s;
-    }
-
-    button:active,
-    button:focus {
-      outline: none;
-    }
-
-    td.label {
+    .label {
       width: 80px;
     }
 
-    td.label,
-    td.result {
+    .label,
+    .result {
       text-align: right;
     }
   }
@@ -67,11 +69,11 @@ body {
     position: absolute;
     border-radius: 50%;
     background-color: #aaf;
-    border: 1px solid #555;
+    border: $border;
     box-shadow: #000 0 0 15px;
-  }
 
-  .clicky:hover {
-    cursor: pointer;
+    :hover {
+      cursor: pointer;
+    }
   }
 }
