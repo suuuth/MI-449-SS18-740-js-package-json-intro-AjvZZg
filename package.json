@@ -6,13 +6,21 @@
     "dev:sass": "node-sass source/scss/style.scss --watch compiled/css --output-style=compressed --source-map=true",
     "dev": "run-p dev:*",
     "build:sass": "node-sass source/scss/style.scss --output=compiled/css --output-style=compressed --source-map=true",
-    "deploy:surge": "surge --project . --domain sassy-project.surge.sh",
+    "build:stylelint": "stylelint 'source/scss/style.scss'",
+    "build:html": "htmlhint *.html",
+    "build:js": "standard",
+    "build": "run-s build:*",
+    "deploy:surge": "surge --project . --domain https://suuuth-js-package-json-intro.surge.sh/",
     "deploy": "run-s build:* deploy:surge"
   },
   "devDependencies": {
+    "htmlhint": "^0.9.13",
     "live-server": "^1.2.0",
     "node-sass": "^4.8.3",
     "npm-run-all": "^4.1.2",
+    "standard": "^11.0.1",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
     "surge": "^0.20.1"
   }
 }

@@ -8,7 +8,7 @@ var CLICKY_SIZE = 50
 
 var timer, time, best
 
-function resetGame() {
+function resetGame () {
   stopTimer()
   best = parseInt(window.localStorage.getItem('best'))
   if (isNaN(best)) {
@@ -22,7 +22,7 @@ function resetGame() {
   }
 }
 
-function randomUnit(dimension) {
+function randomUnit (dimension) {
   var unit = Math.floor(Math.random() * dimension + 1)
   if (unit <= CLICKY_SIZE) {
     unit += CLICKY_SIZE
@@ -32,7 +32,7 @@ function randomUnit(dimension) {
   return unit
 }
 
-function checkGameOver() {
+function checkGameOver () {
   var clickies = document.getElementsByClassName('clicky')
   if (!clickies.length) {
     stopTimer()
@@ -44,12 +44,12 @@ function checkGameOver() {
   }
 }
 
-function clickyClick() {
+function clickyClick () {
   removeClicky(this)
   checkGameOver()
 }
 
-function newClicky() {
+function newClicky () {
   var clicky = document.createElement('div')
   clicky.className = 'clicky'
   clicky.style.top = randomUnit(window.top.innerHeight) + 'px'
@@ -60,30 +60,30 @@ function newClicky() {
   document.body.appendChild(clicky)
 }
 
-function removeClicky(clicky) {
+function removeClicky (clicky) {
   if (clicky) {
     clicky.outerHTML = ''
   }
 }
 
-function stopTimer() {
+function stopTimer () {
   if (timer) {
     window.clearInterval(timer)
     timer = null
   }
 }
 
-function updateStats() {
+function updateStats () {
   bestResult.textContent = best
   timeResult.textContent = time
 }
 
-function tick() {
+function tick () {
   time += TICK_INTERVAL
   updateStats()
 }
 
-function newGame() {
+function newGame () {
   resetGame()
   for (var i = 0; i < NUM_CLICKIES; i++) {
     newClicky()
@@ -91,7 +91,7 @@ function newGame() {
   timer = window.setInterval(tick, TICK_INTERVAL)
 }
 
- startButton.addEventListener('click', newGame)
+startButton.addEventListener('click', newGame)
 
 resetGame()
 updateStats()
