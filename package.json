@@ -5,13 +5,13 @@
     "dev:server": "live-server",
     "dev:sass": "node-sass source/scss/style.scss --watch compiled/css --output-style=compressed --source-map=true",
     "dev": "run-p dev:*",
-    "build:sass": "node-sass source/scss/style.scss --output=compiled/css --output-style=compressed --source-map=true",
     "build:stylelint": "stylelint 'source/scss/*.scss'",
+    "build:sass": "node-sass source/scss/style.scss --output=compiled/css --output-style=compressed --source-map=true",
     "build:html": "htmlhint *.html",
     "build:js": "standard",
     "build": "run-s build:*",
     "deploy:surge": "surge --project . --domain https://suuuth-js-package-json-intro.surge.sh/",
-    "deploy": "run-s build:* deploy:surge"
+    "deploy": "run-s build deploy:surge"
   },
   "devDependencies": {
     "htmlhint": "^0.9.13",
